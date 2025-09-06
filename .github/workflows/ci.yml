@@ -24,3 +24,8 @@ jobs:
 
     - name: Build project
       run: dotnet build ./TodoApp/TodoApp.csproj --no-restore --configuration Release
+      
+    - name: Publish Project Locally (simulate CD)
+      run: |
+        mkdir -p ../TodoAppPublish
+        ci publish TodoApp/TodoApp.csproj -c Release -o ../TodoAppPublish
